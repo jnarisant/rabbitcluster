@@ -13,7 +13,7 @@ RUN rabbitmq-plugins enable --offline autocluster
 
 # this is where its super custom
 COPY pre-entrypoint.sh /
-#RUN apt update && apt install -y net-tools
+RUN chmod 550 /pre-entrypoint.sh
 
 ENTRYPOINT ["/pre-entrypoint.sh"]
 CMD ["rabbitmq-server"]
